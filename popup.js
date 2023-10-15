@@ -20,3 +20,19 @@ btnGenerateReply.addEventListener("click", function () {
     },
   );
 });
+
+const inputApiKey = document.getElementById("api_key");
+chrome.storage.sync.get("api_key", function (data) {
+  inputApiKey.value = data.api_key;
+});
+
+inputApiKey.addEventListener("change", function () {
+  storeApiKey(inputApiKey.value);
+});
+inputApiKey.addEventListener("blur", function () {
+  storeApiKey(inputApiKey.value);
+});
+
+function storeApiKey(value) {
+  chrome.storage.sync.set({ api_key: value });
+}
