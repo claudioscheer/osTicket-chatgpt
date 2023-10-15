@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener(function (request, _, sendResponse) {
   const ticketItems = getAllEvents();
   if (request.type === "generate_reply") {
-    sendResponse({ ticketItems, prompt: request.prompt });
+    sendResponse({ ticketItems });
   }
 });
 
